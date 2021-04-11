@@ -34,6 +34,7 @@ class _MobileScreenState extends State<MobileScreen> {
                       controller: controller,
                       decoration: InputDecoration(
                         labelText: "Your copied text",
+                        
                       ),
                     )
                 ),
