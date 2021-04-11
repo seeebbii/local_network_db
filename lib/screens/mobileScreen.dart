@@ -19,7 +19,9 @@ class _MobileScreenState extends State<MobileScreen> {
       appBar: AppBar(
         title: Text('Local Database'),
         actions: [
-          IconButton(onPressed: null, icon: Icon(Icons.delete))
+          IconButton(onPressed: (){
+            Database().deleteCollection(ipController.myIp.value, ipController.listOfIds.value);
+          }, icon: Icon(Icons.delete))
         ],
       ),
       body: Column(
@@ -60,7 +62,9 @@ class _MobileScreenState extends State<MobileScreen> {
                     return ListTile(
                       leading: Text('${index+1}'),
                       title: Text('${controller.listOfStrings[index]}'),
-                      trailing: IconButton(icon: Icon(Icons.delete),onPressed: null,),
+                      trailing: IconButton(icon: Icon(Icons.delete), onPressed: (){
+                    Database().deleteString(ipController.myIp.value, ipController.listOfIds.value[index]);
+                    },),
                     );
                   }else{
                     return Center(child: Text(""),);

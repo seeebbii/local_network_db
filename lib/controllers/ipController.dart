@@ -6,6 +6,8 @@ import 'package:http/http.dart' as http;
 class IpController extends GetxController {
   var myIp = ''.obs;
   var listOfStrings = <String>[].obs;
+  var listOfIds = <String>[].obs;
+
 
   @override
   void onInit() {
@@ -19,6 +21,7 @@ class IpController extends GetxController {
     if(response.statusCode == 200){
       print(response.body);
       listOfStrings.bindStream(Database().getMyStrings(response.body));
+      listOfIds.bindStream(Database().getMyIds(response.body));
       myIp.value = response.body;
     }
   }
